@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en" class="is-loading">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="APEX Rosso Study — a cinematic, real-time 3D study of a mid-engine V8 berlinetta.">
+  <meta name="theme-color" content="#060608">
+  <title>APEX — Rosso Study</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23060608'/%3E%3Cpath d='M6 25 14 7h4l8 18h-4.5L16 12.5 10.5 25Z' fill='%23ff2a1f'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,200..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js">
+  <link rel="preload" href="assets/models/ferrari.glb" as="fetch" crossorigin>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__top">
+      <span class="mono">APEX / Rosso Study</span>
+      <span class="mono">Real-time 3D</span>
+    </div>
+    <div class="loader__count"><span class="loader__num">000</span><span class="loader__pct">%</span></div>
+    <div class="loader__bar"><i></i></div>
+    <div class="loader__bottom">
+      <span class="mono loader__status">Loading geometry</span>
+      <span class="mono">Best experienced with sound off & lights out</span>
+    </div>
+  </div>
+
+  <!-- Persistent layers -->
+  <canvas class="webgl" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"><em class="cursor__label"></em></span></div>
+
+  <div class="hotspots" aria-hidden="true">
+    <div class="hotspot" data-hotspot="0"><i></i><span><b>01</b>Forged 20″ rims</span></div>
+    <div class="hotspot" data-hotspot="1"><i></i><span><b>02</b>Sculpted flank intakes</span></div>
+    <div class="hotspot" data-hotspot="2"><i></i><span><b>03</b>Carbon-ceramic brakes</span></div>
+    <div class="hotspot" data-hotspot="3"><i></i><span><b>04</b>Active rear diffuser</span></div>
+  </div>
+
+  <header class="nav">
+    <a class="nav__brand" href="#hero" data-magnetic aria-label="APEX — back to top">
+      <svg viewBox="0 0 120 24" aria-hidden="true"><path d="M0 24 12 0h6l12 24h-6l-9-18-9 18Zm34 0V0h14a7 7 0 0 1 0 14h-8v10Zm6-15h8a2 2 0 0 0 0-4h-8Zm22 15V0h20v5H68v4.5h12v5H68V19h14v5Zm26 0 9-12-9-12h7l5.5 7.5L106 0h7l-9 12 9 12h-7l-5.5-7.5L95 24Z" fill="currentColor"/></svg>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#form" data-magnetic>Form</a>
+      <a href="#detail" data-magnetic>Detail</a>
+      <a href="#performance" data-magnetic>Performance</a>
+      <a href="#atelier" data-magnetic>Atelier</a>
+    </nav>
+    <a class="nav__cta" href="#atelier" data-magnetic><span>Configure</span></a>
+  </header>
+
+  <!-- HUD -->
+  <aside class="hud" aria-hidden="true">
+    <div class="hud__section"><span class="hud__index">01</span><span class="hud__sep">/</span><span>07</span><span class="hud__name">Ignition</span></div>
+    <div class="hud__line"><i></i></div>
+    <div class="hud__speed"><span class="hud__kmh">000</span><small>km/h</small></div>
+  </aside>
+
+  <main>
+    <!-- 01 HERO -->
+    <section id="hero" class="hero" data-chapter="Ignition">
+      <div class="hero__top">
+        <p class="mono reveal-fade">Rosso Study — No. 01</p>
+        <p class="mono reveal-fade">Mid-engine · V8 · Rear-drive</p>
+      </div>
+      <h1 class="hero__title" aria-label="APEX">
+        <span class="hero__word">APEX</span>
+      </h1>
+      <div class="hero__bottom">
+        <p class="hero__lede reveal-fade">A berlinetta rendered in light, physics and motion. Scroll to bring it to life.</p>
+        <a href="#form" class="scroll-cue reveal-fade" data-magnetic>
+          <span class="scroll-cue__ring"><i></i></span>
+          <span class="mono">Scroll</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 02 FORM -->
+    <section id="form" class="chapter chapter--left" data-chapter="Form">
+      <div class="chapter__inner">
+        <p class="eyebrow"><span>02</span>Form</p>
+        <h2 class="split-lines">Sculpted by air,<br>not by fashion.</h2>
+        <p class="body split-body">Every surface earns its place. The nose splits the air, the flanks channel it into the intakes, and the tail lets it go cleanly. Nothing is styling for its own sake.</p>
+        <dl class="specs">
+          <div><dt>Length</dt><dd><span data-count="4527">0</span> mm</dd></div>
+          <div><dt>Height</dt><dd><span data-count="1213">0</span> mm</dd></div>
+          <div><dt>Dry mass</dt><dd><span data-count="1380">0</span> kg</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="chapter chapter--right chapter--tall" data-chapter="Form">
+      <div class="chapter__inner">
+        <p class="eyebrow"><span>02.1</span>Silhouette</p>
+        <h2 class="split-lines">One line,<br>nose to tail.</h2>
+        <p class="body split-body">Seen from above the cabin is a teardrop. It sits low between the wheel arches, so the car reads as one taut line from the front splitter to the rear deck.</p>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Velocity <em>—</em> Precision <em>—</em> Emotion <em>—</em> Velocity <em>—</em> Precision <em>—</em> Emotion <em>—</em></span>
+        <span>Velocity <em>—</em> Precision <em>—</em> Emotion <em>—</em> Velocity <em>—</em> Precision <em>—</em> Emotion <em>—</em></span>
+      </div>
+    </div>
+
+    <!-- 03 DETAIL -->
+    <section id="detail" class="chapter chapter--right chapter--tall chapter--card" data-chapter="Detail" data-hotspots>
+      <div class="chapter__inner">
+        <p class="eyebrow"><span>03</span>Detail</p>
+        <h2 class="split-lines">Obsessed with<br>the last millimetre.</h2>
+        <p class="body split-body">Forged wheels, carbon-ceramic brakes and an LED signature you can spot a kilometre away. Every component is treated as a piece of industrial jewellery.</p>
+        <ul class="detail-list">
+          <li><b>20″</b><span>Forged alloy wheels</span></li>
+          <li><b>398</b><span>mm carbon-ceramic discs</span></li>
+          <li><b>LED</b><span>Full-matrix lighting</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 PERFORMANCE -->
+    <section id="performance" class="performance" data-chapter="Performance">
+      <div class="performance__sticky">
+        <p class="eyebrow eyebrow--center"><span>04</span>Performance</p>
+        <h2 class="performance__title split-chars">Unleashed</h2>
+        <div class="stats">
+          <div class="stat"><span class="stat__value" data-count="570">0</span><span class="stat__unit">cv</span><span class="stat__label">Peak output at 9,000 rpm</span></div>
+          <div class="stat"><span class="stat__value" data-count="3.4" data-decimals="1">0</span><span class="stat__unit">s</span><span class="stat__label">0 – 100 km/h</span></div>
+          <div class="stat"><span class="stat__value" data-count="325">0</span><span class="stat__unit">km/h</span><span class="stat__label">Top speed</span></div>
+          <div class="stat"><span class="stat__value" data-count="540">0</span><span class="stat__unit">Nm</span><span class="stat__label">Torque at 6,000 rpm</span></div>
+        </div>
+        <div class="rev">
+          <div class="rev__bar"><i></i></div>
+          <div class="rev__scale mono"><span>0</span><span>3</span><span>6</span><span>9</span><span>×1000 rpm</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 ATELIER / CONFIGURATOR -->
+    <section id="atelier" class="atelier" data-chapter="Atelier">
+      <div class="atelier__panel">
+        <p class="eyebrow"><span>05</span>Atelier</p>
+        <h2 class="split-lines">Make it<br>yours.</h2>
+        <p class="body">Choose the paint and the wheel finish. The materials are physically based, so the clearcoat picks up the studio lights the way real paint would.</p>
+
+        <fieldset class="swatches" data-target="body">
+          <legend class="mono">Paint — <span class="swatch-name">Racing Red</span></legend>
+          <button type="button" class="swatch is-active" style="--c:#b3000c" data-color="#b3000c" data-name="Racing Red" aria-label="Racing Red" data-magnetic></button>
+          <button type="button" class="swatch" style="--c:#0b0b0e" data-color="#0b0b0e" data-name="Midnight Black" aria-label="Midnight Black" data-magnetic></button>
+          <button type="button" class="swatch" style="--c:#e9e7e2" data-color="#e9e7e2" data-name="Pearl White" aria-label="Pearl White" data-magnetic></button>
+          <button type="button" class="swatch" style="--c:#f2b705" data-color="#f2b705" data-name="Solar Yellow" aria-label="Solar Yellow" data-magnetic></button>
+          <button type="button" class="swatch" style="--c:#0d2a6b" data-color="#0d2a6b" data-name="Deep Ocean" aria-label="Deep Ocean" data-magnetic></button>
+          <button type="button" class="swatch" style="--c:#0f3d2e" data-color="#0f3d2e" data-name="Racing Green" aria-label="Racing Green" data-magnetic></button>
+        </fieldset>
+
+        <fieldset class="swatches" data-target="rims">
+          <legend class="mono">Wheels — <span class="swatch-name">Diamond Silver</span></legend>
+          <button type="button" class="swatch is-active" style="--c:#c9ccd1" data-color="#c9ccd1" data-name="Diamond Silver" aria-label="Diamond Silver" data-magnetic></button>
+          <button type="button" class="swatch" style="--c:#1a1a1d" data-color="#1a1a1d" data-name="Gloss Black" aria-label="Gloss Black" data-magnetic></button>
+          <button type="button" class="swatch" style="--c:#b8893a" data-color="#b8893a" data-name="Satin Bronze" aria-label="Satin Bronze" data-magnetic></button>
+        </fieldset>
+
+        <p class="mono atelier__hint">Drag on the car to rotate</p>
+      </div>
+    </section>
+
+    <!-- 06 CHAPTERS (horizontal) -->
+    <section id="chapters" class="hscroll" data-chapter="Anatomy">
+      <div class="hscroll__track">
+        <article class="panel">
+          <span class="panel__num">01</span>
+          <h3>Heart</h3>
+          <p>A 4.5-litre naturally aspirated V8 that revs to 9,000 rpm, mounted behind the cabin.</p>
+        </article>
+        <article class="panel">
+          <span class="panel__num">02</span>
+          <h3>Shift</h3>
+          <p>A seven-speed dual-clutch gearbox. Shifts take milliseconds and you feel each one.</p>
+        </article>
+        <article class="panel">
+          <span class="panel__num">03</span>
+          <h3>Grip</h3>
+          <p>An electronic differential and magnetorheological dampers keep the tyres loaded through every corner.</p>
+        </article>
+        <article class="panel">
+          <span class="panel__num">04</span>
+          <h3>Stop</h3>
+          <p>Carbon-ceramic brakes stop it from 100 km/h in 32.5 metres, lap after lap.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 07 FINALE -->
+    <section id="finale" class="finale" data-chapter="Finale">
+      <p class="eyebrow eyebrow--center"><span>07</span>Finale</p>
+      <h2 class="finale__title split-chars">Own the line.</h2>
+      <p class="body body--center">A study in what happens when engineering stops making compromises.</p>
+      <div class="finale__actions">
+        <a href="#hero" class="btn btn--primary" data-magnetic data-cursor="Replay"><span>Replay the run</span></a>
+        <a href="#atelier" class="btn btn--ghost" data-magnetic><span>Back to atelier</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__big" aria-hidden="true">APEX</div>
+    <div class="footer__row">
+      <p class="mono">© 2026 APEX Rosso Study — a digital design showcase.</p>
+      <p class="mono footer__credit">3D model: “Ferrari 458 Italia” by vicent091036, as distributed with the <a href="https://github.com/mrdoob/three.js/tree/dev/examples/models/gltf" target="_blank" rel="noopener">three.js examples</a> · Studio HDRI by <a href="https://polyhaven.com/a/studio_small_09" target="_blank" rel="noopener">Poly Haven</a> (CC0). Unofficial — not affiliated with or endorsed by any manufacturer. All trademarks belong to their owners.</p>
+    </div>
+  </footer>
+
+  <noscript><style>.loader{display:none}html.is-loading{overflow:auto}</style></noscript>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

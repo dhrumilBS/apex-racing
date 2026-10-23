@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ORYNTH R/01 is an independent fictional open-wheel concept study exploring velocity, aerodynamics, hybrid power, and tyre behavior.">
+  <meta name="theme-color" content="#050506">
+  <title>ORYNTH R/01 — Velocity, resolved.</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div id="intro" hidden aria-hidden="true">
+    <div class="intro-core">
+      <svg class="intro-glyph" viewBox="0 0 80 80" aria-hidden="true">
+        <path d="M8 40 24 12h32l16 28-16 28H24Z"/>
+        <path d="M25 40h30M40 25v30"/>
+      </svg>
+      <p class="eyebrow">System ignition</p>
+      <p class="intro-title">R/01 systems online</p>
+      <p class="intro-status" role="status" aria-live="polite">Calibrating concept telemetry</p>
+      <div class="calibration-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+
+  <header id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#overview" aria-label="ORYNTH R/01 overview">
+        <svg class="brand-mark" viewBox="0 0 164 30" role="img" aria-label="ORYNTH">
+          <g fill="currentColor">
+            <path d="M2 15 9 3h16l7 12-7 12H9Zm9-7-4 7 4 7h12l4-7-4-7Z"/>
+            <path d="M38 3h20l6 6v6l-5 5 6 7h-8l-6-7h-6v7h-7Zm7 6v5h11l2-2v-1l-2-2Z"/>
+            <path d="M68 3h8l7 9 7-9h8L87 18v9h-8v-9Z"/>
+            <path d="M101 3h7v18h13v6h-20Z"/>
+            <path d="M126 3h7v9h10V3h7v24h-7v-9h-10v9h-7Z"/>
+            <path d="M153 3h9v24h-9Z"/>
+          </g>
+        </svg>
+        <span class="brand-designation">R/01 <span>/ Fictional study</span></span>
+      </a>
+
+      <button id="menu-toggle" type="button" hidden aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-nav" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#velocity">Velocity</a>
+        <a href="#aero">Aero</a>
+        <a href="#power">Power</a>
+        <a href="#tyres">Tyres</a>
+        <a href="#geometry">Geometry</a>
+      </nav>
+    </div>
+    <div class="progress-track" aria-hidden="true"><span id="scroll-progress"></span></div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section id="overview" class="hero story-section" tabindex="-1" aria-labelledby="hero-title">
+      <div id="webgl-stage" aria-hidden="true"></div>
+      <div class="hero-grid content-shell">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow"><span>01</span> Independent fictional design study</p>
+          <h1 id="hero-title">Velocity,<br><em>resolved.</em></h1>
+          <p class="hero-lede">A clean-sheet open-wheel concept shaped around air, energy, and the final millimetres of contact.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#velocity">Enter the velocity story <span aria-hidden="true">↘</span></a>
+          </div>
+          <p class="disclosure">ORYNTH R/01 is an independent fictional concept not affiliated with Formula 1, Pirelli, any team, or any manufacturer.</p>
+        </div>
+
+        <figure id="car-fallback" class="hero-car">
+          <svg viewBox="0 0 960 360" role="img" aria-labelledby="side-title side-desc">
+            <title id="side-title">ORYNTH R/01 side profile</title>
+            <desc id="side-desc">An original low open-wheel race concept with exposed wheels, swept wings, a red monocoque, and a protective halo.</desc>
+            <defs>
+              <linearGradient id="body-red" x1="0" x2="1"><stop stop-color="#8e1424"/><stop offset=".5" stop-color="#ff3347"/><stop offset="1" stop-color="#8e1424"/></linearGradient>
+              <pattern id="carbon-grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 10 10 0M-5 5 5-5M5 15 15 5" stroke="#343840" stroke-width="1"/></pattern>
+            </defs>
+            <g class="speed-lines" fill="none" stroke="#343840"><path d="M30 90h290M10 118h230M100 250h200"/><path d="M680 80h210M730 110h190" stroke-dasharray="10 12"/></g>
+            <g class="wheel wheel-rear" transform="translate(224 226)"><circle r="94" fill="#050506" stroke="#343840" stroke-width="8"/><circle r="67" fill="url(#carbon-grid)" stroke="#ffd21f" stroke-width="4"/><circle r="32" fill="#17191e" stroke="#a7aeb8" stroke-width="3"/><path d="M0-60V60M-60 0H60M-43-43l86 86M43-43l-86 86" stroke="#a7aeb8" stroke-width="5"/></g>
+            <g class="wheel wheel-front" transform="translate(744 226)"><circle r="79" fill="#050506" stroke="#343840" stroke-width="8"/><circle r="55" fill="url(#carbon-grid)" stroke="#ffd21f" stroke-width="4"/><circle r="25" fill="#17191e" stroke="#a7aeb8" stroke-width="3"/><path d="M0-49V49M-49 0H49M-35-35l70 70M35-35l-70 70" stroke="#a7aeb8" stroke-width="4"/></g>
+            <path d="m70 235 55-20 95-9 55-50 168-33 154 42 179 18 93 38-5 29-131-12-115-4-99 32-250-8-91-18-92 13Z" fill="url(#body-red)" stroke="#f4f7fa" stroke-width="2"/>
+            <path d="m294 195 88-57 92-5 61 38-15 27-135-4Z" fill="#0c0d10" stroke="#a7aeb8" stroke-width="2"/>
+            <path d="M420 137q20-65 70-3M421 137l-22 57M488 134l27 61" fill="none" stroke="#a7aeb8" stroke-width="9"/>
+            <ellipse cx="456" cy="140" rx="23" ry="27" fill="#ffd21f" stroke="#050506" stroke-width="5"/>
+            <path d="M88 204h190l-8 19H62Zm616-34h171l35 16-8 12-213-2Z" fill="#17191e" stroke="#a7aeb8" stroke-width="2"/>
+            <path d="m532 195 91 11-53 42-117 3Z" fill="#0c0d10" stroke="#343840" stroke-width="2"/>
+            <path d="M100 250h630" stroke="#ff3347" stroke-width="5"/>
+            <text x="335" y="228" fill="#f4f7fa" font-size="24" font-family="Arial, sans-serif" font-weight="700">R/01</text>
+          </svg>
+          <figcaption>Authored side-profile visualization of the fictional R/01 concept.</figcaption>
+        </figure>
+
+        <dl class="hero-data" data-reveal>
+          <div><dt>Target V-max</dt><dd>355 <small>km/h</small></dd></div>
+          <div><dt>0–100 km/h</dt><dd>2.3 <small>s</small></dd></div>
+          <div><dt>System output</dt><dd>1,040 <small>hp</small></dd></div>
+        </dl>
+      </div>
+      <a class="scroll-cue" href="#intent"><span>Scroll to intent</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <section id="intent" class="intent story-section" aria-labelledby="intent-title">
+      <div class="content-shell">
+        <header class="section-heading" data-reveal>
+          <p class="eyebrow"><span>02</span> Design intent</p>
+          <h2 id="intent-title">Built around<br><em>the air.</em></h2>
+          <p>R/01 treats speed as an engineering system. Every visible surface answers one of three questions: how cleanly does it arrive, how intelligently does it recover, and how faithfully does it connect?</p>
+        </header>
+        <ol class="principles">
+          <li data-reveal><span>01</span><h3>Disrupt less</h3><p>Reduced frontal obstruction gives the airflow a precise first instruction.</p></li>
+          <li data-reveal><span>02</span><h3>Recover more</h3><p>Hybrid deployment turns deceleration and exhaust energy into repeatable response.</p></li>
+          <li data-reveal><span>03</span><h3>Control contact</h3><p>Thermal discipline keeps each contact patch inside a usable performance window.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="velocity" class="velocity story-section" aria-labelledby="velocity-title">
+      <div class="velocity-story">
+        <div class="velocity-stage content-shell">
+          <header class="section-heading compact" data-reveal>
+            <p class="eyebrow"><span>03</span> Velocity</p>
+            <h2 id="velocity-title">Every millisecond<br><em>has a shape.</em></h2>
+          </header>
+          <div class="velocity-instrument" aria-label="Illustrative velocity telemetry">
+            <div class="speed-readout"><span id="speed-value" data-counter data-replayable data-start="0" data-end="355">355</span><small>km/h</small></div>
+            <div class="gear-readout"><span>Gear</span><strong id="gear-value">8</strong></div>
+            <svg class="telemetry" viewBox="0 0 720 180" role="img" aria-labelledby="telemetry-title telemetry-desc">
+              <title id="telemetry-title">Velocity deployment trace</title>
+              <desc id="telemetry-desc">A labelled solid velocity line rises through launch, electric deployment, and maximum speed.</desc>
+              <g class="telemetry-grid"><path d="M0 30H720M0 75H720M0 120H720M0 165H720"/><path d="M90 0V180M270 0V180M450 0V180M630 0V180"/></g>
+              <path class="telemetry-base" d="M0 165C90 164 108 105 180 90S310 74 370 50 500 31 720 20"/>
+              <path id="telemetry-progress" d="M0 165C90 164 108 105 180 90S310 74 370 50 500 31 720 20" pathLength="100"/>
+              <path id="deployment-trace" d="M250 102C330 88 345 50 460 37" pathLength="100"/>
+              <text x="260" y="125">190 hp electric deployment</text>
+            </svg>
+          </div>
+          <ol class="velocity-phases">
+            <li data-phase="launch"><span>00—120</span><h3>Launch</h3><p>28 m/s² concept acceleration resolves traction before power.</p></li>
+            <li data-phase="deployment"><span>120—300</span><h3>Deployment</h3><p>Electric response fills the pressure gap across the upshift sequence.</p></li>
+            <li data-phase="vmax" class="is-active"><span>300—355</span><h3>V-max</h3><p>Drag, stability, and 15,000 rpm converge at the target maximum.</p></li>
+          </ol>
+          <dl class="metric-strip">
+            <div><dt>0–100 km/h</dt><dd><span data-counter data-replayable data-start="0" data-end="2.3" data-decimals="1">2.3</span> s</dd></div>
+            <div><dt>Lateral peak</dt><dd><span data-counter data-replayable data-start="0" data-end="4.8" data-decimals="1">4.8</span> g</dd></div>
+            <div><dt>Launch acceleration</dt><dd><span data-counter data-replayable data-start="0" data-end="28">28</span> m/s²</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="aero" class="aero story-section" aria-labelledby="aero-title">
+      <div class="aero-story">
+        <div class="aero-stage content-shell">
+          <header class="section-heading compact" data-reveal>
+            <p class="eyebrow"><span>04</span> Aerodynamics</p>
+            <h2 id="aero-title">Pressure becomes<br><em>precision.</em></h2>
+          </header>
+          <div class="aero-layout">
+            <figure class="aero-figure">
+              <svg viewBox="0 0 800 560" role="img" aria-labelledby="aero-figure-title aero-figure-desc">
+                <title id="aero-figure-title">R/01 aerodynamic plan view</title>
+                <desc id="aero-figure-desc">Solid, dashed, and dotted airflow routes move from the front wing, around the sidepods and floor, toward the diffuser.</desc>
+                <defs><marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="m0 0 10 5-10 5Z" fill="#ff3347"/></marker></defs>
+                <g class="plan-car">
+                  <path d="M400 45 470 150l48 116-25 180-93 70-93-70-25-180 48-116Z"/>
+                  <path d="M265 80h270l18 34-93 14-60-40-60 40-93-14Z"/>
+                  <path d="M250 440h300l38 48-188-15-188 15Z"/>
+                  <rect x="220" y="150" width="80" height="130" rx="30"/><rect x="500" y="150" width="80" height="130" rx="30"/>
+                  <rect x="220" y="330" width="80" height="145" rx="30"/><rect x="500" y="330" width="80" height="145" rx="30"/>
+                  <path d="M355 245q45-90 90 0v120h-90Z" class="cockpit"/>
+                </g>
+                <g class="airflow" fill="none" marker-end="url(#arrow-red)">
+                  <path data-airflow d="M120 30Q200 100 310 126T390 480" pathLength="100"/>
+                  <path data-airflow d="M220 20Q270 180 315 225T350 500" pathLength="100"/>
+                  <path data-airflow d="M580 20Q530 180 485 225T450 500" pathLength="100"/>
+                  <path data-airflow d="M680 30Q600 100 490 126T410 480" pathLength="100"/>
+                </g>
+                <g class="aero-callout" data-aero-callout="front"><path d="M210 115H70"/><circle cx="210" cy="115" r="5"/><text x="70" y="98">01 / FRONT WING</text></g>
+                <g class="aero-callout" data-aero-callout="floor"><path d="M310 330H80"/><circle cx="310" cy="330" r="5"/><text x="80" y="313">02 / FLOOR + SIDEPOD</text></g>
+                <g class="aero-callout" data-aero-callout="diffuser"><path d="M505 455H720"/><circle cx="505" cy="455" r="5"/><text x="590" y="438">03 / DIFFUSER</text></g>
+                <g class="aero-callout is-active" data-aero-callout="balance"><path d="M450 280H715"/><circle cx="450" cy="280" r="5"/><text x="545" y="263">04 / AERO BALANCE</text></g>
+              </svg>
+              <figcaption>Illustrative airflow architecture; conceptual visualization, not simulation output.</figcaption>
+            </figure>
+            <div class="aero-data">
+              <p id="aero-phase" class="eyebrow">Diffuser / balance</p>
+              <p class="downforce-value"><span id="downforce-value" data-counter data-start="0" data-end="1700">1,700</span><small>kg</small></p>
+              <p>Theoretical downforce at 280 km/h</p>
+              <div class="balance-bars" aria-label="Nominal aero balance: 42 percent front and 58 percent rear">
+                <span><b>Front · 42%</b><i class="front-bar"></i></span>
+                <span><b>Rear · 58%</b><i class="rear-bar"></i></span>
+              </div>
+              <p class="fine-print">Nominal aero balance: 42% front / 58% rear; configurable through setup. Figures are illustrative concept targets.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="power" class="power story-section opaque-section" aria-labelledby="power-title">
+      <div class="content-shell">
+        <header class="section-heading" data-reveal>
+          <p class="eyebrow"><span>05</span> Power / engineering</p>
+          <h2 id="power-title"><strong>1,040</strong> synchronized<br><em>horsepower.</em></h2>
+          <p>OV-6H pairs a compact 1.6 L turbo-hybrid V6 with an 800 V electric architecture. It is a fictional concept system, not a real-world regulatory specification.</p>
+        </header>
+        <div class="power-grid">
+          <figure class="power-diagram" data-reveal>
+            <svg viewBox="0 0 620 620" role="img" aria-labelledby="power-figure-title power-figure-desc">
+              <title id="power-figure-title">OV-6H energy architecture</title>
+              <desc id="power-figure-desc">A labelled circular flow links the combustion engine, turbo motor-generator, battery store, and rear axle.</desc>
+              <circle cx="310" cy="310" r="240" class="power-orbit"/><circle cx="310" cy="310" r="155" class="power-orbit secondary"/>
+              <g class="power-node engine"><circle cx="310" cy="95" r="64"/><text x="310" y="88">V6</text><text x="310" y="112">850 HP</text></g>
+              <g class="power-node turbo"><circle cx="105" cy="310" r="64"/><text x="105" y="302">TURBO</text><text x="105" y="326">M-GEN</text></g>
+              <g class="power-node battery"><circle cx="310" cy="525" r="64"/><text x="310" y="518">4 MJ</text><text x="310" y="542">STORE</text></g>
+              <g class="power-node axle"><circle cx="515" cy="310" r="64"/><text x="515" y="302">REAR</text><text x="515" y="326">AXLE</text></g>
+              <g class="energy-arrows"><path d="M355 145Q470 180 470 250"/><path d="M470 370Q440 460 370 490"/><path d="M250 490Q160 450 150 370"/><path d="M150 250Q190 155 265 145"/></g>
+              <text x="310" y="295" class="system-label">OV-6H</text><text x="310" y="330" class="system-output">1,040 HP</text>
+            </svg>
+            <figcaption>Fictional bidirectional energy flow across the OV-6H system.</figcaption>
+          </figure>
+          <dl class="power-specs" data-reveal>
+            <div><dt>Combustion</dt><dd>850 hp</dd><small>1.6 L turbo-hybrid V6</small></div>
+            <div><dt>Electric</dt><dd>190 hp</dd><small>Immediate rear-axle deployment</small></div>
+            <div><dt>System</dt><dd>1,040 hp</dd><small>Synchronized concept output</small></div>
+            <div><dt>Engine limit</dt><dd>15,000 rpm</dd><small>Eight-speed sequential</small></div>
+            <div><dt>Architecture</dt><dd>800 V</dd><small>Active energy recovery</small></div>
+            <div><dt>Recoverable store</dt><dd>4 MJ</dd><small>Deployment energy target</small></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="tyres" class="tyres story-section opaque-section" aria-labelledby="tyres-title">
+      <div class="content-shell">
+        <header class="section-heading dark-heading" data-reveal>
+          <p class="eyebrow"><span>06</span> Tyre systems</p>
+          <h2 id="tyres-title">The final<br><em>contact patch.</em></h2>
+          <p>Construction controls the conversation between chassis and surface. The common target window is 90–110°C; hot pressure remains setup-dependent.</p>
+        </header>
+
+        <div class="tyre-construction">
+          <figure class="tyre-cutaway" data-reveal>
+            <svg viewBox="0 0 760 500" role="img" aria-labelledby="tyre-figure-title tyre-figure-desc">
+              <title id="tyre-figure-title">Fictional racing tyre cutaway</title>
+              <desc id="tyre-figure-desc">A sectional tyre diagram labels the surface, belt, carcass, sidewall, and contact patch.</desc>
+              <path class="tyre-outer" d="M210 430C145 350 130 210 205 92 265 0 495 0 555 92c75 118 60 258-5 338l-90-34c40-76 43-185 0-257-25-42-135-42-160 0-43 72-40 181 0 257Z"/>
+              <path class="tyre-belt" d="M226 415c-56-75-66-205 0-306 48-73 260-73 308 0 66 101 56 231 0 306l-32-12c47-70 55-188 0-276-37-57-207-57-244 0-55 88-47 206 0 276Z"/>
+              <path class="tyre-carcass" d="M258 403c-47-70-55-188 0-276 37-57 207-57 244 0 55 88 47 206 0 276l-42-16c39-72 41-176 0-245-26-43-134-43-160 0-41 69-39 173 0 245Z"/>
+              <path class="contact-patch" d="M290 395q90 25 180 0l-10 54H300Z"/>
+              <g class="tyre-labels"><path d="M207 90 80 52"/><text x="22" y="44">SURFACE</text><path d="M240 115 85 145"/><text x="22" y="140">BELT</text><path d="M285 165 90 235"/><text x="22" y="230">CARCASS</text><path d="M528 245 690 192"/><text x="610" y="185">SIDEWALL</text><path d="M430 430 650 455"/><text x="548" y="480">CONTACT PATCH</text></g>
+            </svg>
+            <figcaption>Illustrative construction. Front: <strong>305/720 R18</strong> · Rear: <strong>405/720 R18</strong>.</figcaption>
+          </figure>
+          <div class="thermal-story" data-reveal>
+            <h3>Thermal behavior</h3>
+            <div class="thermal-track" aria-label="Common tyre temperature target window">
+              <div class="cold"><span>Cold</span><strong>&lt;90°C</strong><small>Low surface activation</small></div>
+              <div class="target"><span>Target</span><strong>90–110°C</strong><small>Controlled working window</small></div>
+              <div class="overheat"><span>Overheat</span><strong>&gt;110°C</strong><small>Accelerated degradation</small></div>
+            </div>
+            <p>The footprint lengthens under load while belt stiffness contains lateral deformation. Temperature is managed across the tread, not inferred from a single central reading.</p>
+          </div>
+        </div>
+
+        <div class="compound-explorer" data-reveal>
+          <div class="compound-intro">
+            <p class="eyebrow">Fictional setup modes</p>
+            <h3>Three responses.<br>One operating window.</h3>
+          </div>
+          <div id="compound-controls" role="group" aria-label="Tyre setup mode" hidden>
+            <button type="button" data-compound="arc" aria-pressed="true"><span class="pattern pattern-triangle" aria-hidden="true"></span>Arc <small>Attack</small></button>
+            <button type="button" data-compound="vector" aria-pressed="false"><span class="pattern pattern-line" aria-hidden="true"></span>Vector <small>Balanced</small></button>
+            <button type="button" data-compound="endure" aria-pressed="false"><span class="pattern pattern-dot" aria-hidden="true"></span>Endure <small>Range</small></button>
+          </div>
+          <div class="compound-detail">
+            <div id="grip-meter" class="grip-meter pattern-triangle" role="meter" aria-label="Illustrative relative grip index" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-valuetext="Arc, 100 out of 100">
+              <span class="meter-label">Illustrative relative grip index</span>
+              <span class="meter-value"><strong id="grip-value">100</strong><small>/100</small></span>
+              <span class="meter-track"><i id="meter-fill" style="--meter-value:100%"></i></span>
+            </div>
+            <dl>
+              <div><dt>Warm-up</dt><dd id="compound-warmup">Rapid · 1–2 laps</dd></div>
+              <div><dt>Range</dt><dd id="compound-range">Short · 12-lap concept stint</dd></div>
+            </dl>
+            <p id="compound-summary" aria-live="polite" aria-atomic="true">Maximum initial response; highest thermal load.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="compound-comparison">
+            <caption>Permanent comparison of fictional tyre setup modes</caption>
+            <thead><tr><th scope="col">Mode</th><th scope="col">Grip index</th><th scope="col">Warm-up</th><th scope="col">Range</th><th scope="col">Pattern</th><th scope="col">Summary</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Arc <small>/ attack</small></th><td>100</td><td>Rapid · 1–2 laps</td><td>Short · 12-lap concept stint</td><td><span class="pattern pattern-triangle" aria-hidden="true"></span>Triangle</td><td>Maximum initial response; highest thermal load.</td></tr>
+              <tr><th scope="row">Vector <small>/ balanced</small></th><td>88</td><td>Progressive · 2–3 laps</td><td>Medium · 24-lap concept stint</td><td><span class="pattern pattern-line" aria-hidden="true"></span>Line</td><td>Balanced response and thermal stability.</td></tr>
+              <tr><th scope="row">Endure <small>/ range</small></th><td>76</td><td>Measured · 3–4 laps</td><td>Long · 38-lap concept stint</td><td><span class="pattern pattern-dot" aria-hidden="true"></span>Dot</td><td>Lower peak response; longest stable operating range.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">Lap counts are fictional illustrative concept-stint targets; actual behavior depends on setup and conditions. The 90–110°C thermal target applies to every mode.</p>
+      </div>
+    </section>
+
+    <section id="geometry" class="geometry story-section opaque-section" aria-labelledby="geometry-title">
+      <div class="content-shell">
+        <header class="section-heading" data-reveal>
+          <p class="eyebrow"><span>07</span> Geometry</p>
+          <h2 id="geometry-title">Designed to disappear<br><em>at speed.</em></h2>
+          <p>Longitudinal stability without excess visual mass. Every dimension is a fictional concept target, resolved around a compact survival cell.</p>
+        </header>
+        <figure class="geometry-figure" data-reveal>
+          <svg viewBox="0 0 1100 580" role="img" aria-labelledby="geometry-figure-title geometry-figure-desc">
+            <title id="geometry-figure-title">ORYNTH R/01 orthographic dimensions</title>
+            <desc id="geometry-figure-desc">Side and front orthographic outlines show length, width, height, and wheelbase measurements.</desc>
+            <g class="ortho-side"><circle cx="240" cy="302" r="70"/><circle cx="775" cy="302" r="60"/><path d="M90 302h70l110-40 95-92h210l95 72 195 35 60 25H835M300 300h405M400 173q25-80 80 0"/></g>
+            <g class="dimension length"><path d="M90 405V350m835 55V350M90 390h835"/><path d="m90 390 14-7v14Zm835 0-14-7v14Z"/><text x="507" y="380">5,630 mm LENGTH</text></g>
+            <g class="dimension wheelbase"><path d="M240 355v90m535-90v90M240 430h535"/><path d="m240 430 14-7v14Zm535 0-14-7v14Z"/><text x="507" y="420">3,600 mm WHEELBASE</text></g>
+            <g class="ortho-front" transform="translate(840 40)"><path d="M100 20v280M15 245h170M34 245l20-140 46-48 46 48 20 140M15 150h170"/><circle cx="25" cy="232" r="32"/><circle cx="175" cy="232" r="32"/></g>
+            <g class="dimension width"><path d="M850 355h180"/><path d="m850 355 14-7v14Zm180 0-14-7v14Z"/><text x="940" y="345">2,000 mm WIDTH</text></g>
+            <g class="dimension height"><path d="M1060 60v280"/><path d="m1060 60-7 14h14Zm0 280-7-14h14Z"/><text x="1074" y="220" transform="rotate(90 1074 220)">950 mm HEIGHT</text></g>
+          </svg>
+          <figcaption>Orthographic concept envelope · 5,630 mm long · 2,000 mm wide · 950 mm high · 3,600 mm wheelbase.</figcaption>
+        </figure>
+        <dl class="geometry-matrix" data-reveal>
+          <div><dt>Concept running mass</dt><dd>798 kg</dd></div>
+          <div><dt>Survival structure</dt><dd>Carbon-composite survival cell</dd></div>
+          <div><dt>Transmission</dt><dd>Eight-speed sequential</dd></div>
+          <div><dt>Braking</dt><dd>Ventilated carbon discs</dd></div>
+          <div><dt>Rear control</dt><dd>Rear brake-by-wire control</dd></div>
+          <div><dt>Recovery</dt><dd>Active energy recovery</dd></div>
+          <div><dt>Aerodynamics</dt><dd>Setup-configurable aero balance</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="finale" class="finale story-section opaque-section" aria-labelledby="finale-title">
+      <svg id="finale-car" viewBox="0 0 1100 700" aria-hidden="true">
+        <defs><radialGradient id="finale-glow"><stop stop-color="#ff3347" stop-opacity=".55"/><stop offset="1" stop-color="#ff3347" stop-opacity="0"/></radialGradient></defs>
+        <ellipse cx="550" cy="440" rx="430" ry="210" fill="url(#finale-glow)"/>
+        <g class="rear-car">
+          <path d="m155 430 72-130 220-85h206l220 85 72 130-95 40-135-35H385l-135 35Z"/>
+          <path d="M190 285h720l-15 56H205Z"/>
+          <rect x="145" y="350" width="160" height="235" rx="45"/><rect x="795" y="350" width="160" height="235" rx="45"/>
+          <path d="M403 431h294l-55 154H458Z" class="diffuser"/>
+          <path d="M430 290q120-180 240 0M438 290l-40 140m264-140 40 140" class="halo"/>
+          <path class="rear-light" d="M492 415h116l-18 16h-80Z"/>
+          <path d="M475 465h150M455 500h190M438 535h224" class="diffuser-lines"/>
+        </g>
+      </svg>
+      <div class="finale-content content-shell" data-reveal>
+        <p class="eyebrow"><span>08</span> Finale</p>
+        <h2 id="finale-title">The next lap starts<br><em>before the line.</em></h2>
+        <p>ORYNTH R/01 exists to make the invisible legible: pressure, temperature, recovery, and intent—composed into one fictional machine.</p>
+        <div class="finale-actions">
+          <a id="replay" class="button button-primary" href="#overview">Replay the run <span aria-hidden="true">↖</span></a>
+          <a class="button button-secondary" href="#aero">Review the engineering <span aria-hidden="true">↑</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="content-shell footer-grid">
+      <div><strong>ORYNTH</strong><span>R/01 · Velocity, resolved.</span></div>
+      <p>ORYNTH R/01 is an independent fictional concept not affiliated with Formula 1, Pirelli, any team, or any manufacturer.</p>
+      <a href="#overview">Return to top <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

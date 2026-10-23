@@ -1,0 +1,10 @@
+# Local tool state (contains a browser profile — never commit)
+.agents/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Tooling
+node_modules/
